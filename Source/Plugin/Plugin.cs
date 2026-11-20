@@ -7,7 +7,7 @@ namespace CCIPNukeArm;
 [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VER)]
 public class Plugin : BaseUnityPlugin
 {
-    internal static new ManualLogSource Logger;
+    internal static new ManualLogSource logger;
 
     private static Harmony harmony;
     
@@ -15,8 +15,8 @@ public class Plugin : BaseUnityPlugin
     {
         // Log
         
-        Logger = base.Logger;
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loading...");
+        logger = base.Logger;
+        logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loading...");
         
         // Config
         

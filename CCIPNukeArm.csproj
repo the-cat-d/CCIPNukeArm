@@ -19,6 +19,10 @@
 
     <ItemGroup>
         <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all"/>
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="BepInEx.Core" Version="5.*"/>
     </ItemGroup>
 
@@ -28,11 +32,10 @@
 
     <ItemGroup>
       <Folder Include="Assemblies\" />
-      <Folder Include="Source\Patches\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="Assembly-CSharp">
+      <Reference Include="Assembly-CSharp" Publicize="True">
         <HintPath>Assemblies\Assembly-CSharp.dll</HintPath>
       </Reference>
       <Reference Include="Assembly-CSharp-firstpass">
@@ -46,6 +49,9 @@
       </Reference>
       <Reference Include="UnityEngine.CoreModule">
         <HintPath>Assemblies\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.PhysicsModule">
+        <HintPath>Assemblies\UnityEngine.PhysicsModule.dll</HintPath>
       </Reference>
       <Reference Include="UnityEngine.UI">
         <HintPath>Assemblies\UnityEngine.UI.dll</HintPath>
