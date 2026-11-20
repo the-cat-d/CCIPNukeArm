@@ -26,19 +26,22 @@ namespace CCIPNukeArm.Source.Patches
 
                 float fallTime = Kinematics.FallTime(aircraft.radarAlt, aircraft.rb.velocity.y);
                 
-                __instance.ccipFallTime.text = $"ToF {fallTime:F1}/{armDelay:F1}";
-
+                if (PluginConfig.showArmDelay.Value)  __instance.ccipFallTime.text = $"ToF {fallTime:F1}/{armDelay:F1}";
+                
+                if (!PluginConfig.colorInvalidDrop.Value) return;
+                
                 if (fallTime < armDelay)
                 {
-                    __instance.ccipLine.color = Color.red;
-                    __instance.ccrpCircle.color = Color.red;
-                    __instance.ccrpFallTime.color = Color.red;
-                    __instance.ccipFallTime.color = Color.red;
-                    __instance.ccipPipper.color = Color.red;
-                    __instance.alignmentBar.color = Color.red;
-                    __instance.lowerMarker.color = Color.red;
-                    __instance.upperMarker.color = Color.red;
-                    __instance.dropCountdown.color = Color.red;
+                    
+                    __instance.ccipLine.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.ccrpCircle.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.ccrpFallTime.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.ccipFallTime.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.ccipPipper.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.alignmentBar.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.lowerMarker.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.upperMarker.color = PluginConfig.invalidDropColor.Value;;
+                    __instance.dropCountdown.color = PluginConfig.invalidDropColor.Value;;
                     
                 }
                 else
